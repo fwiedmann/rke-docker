@@ -1,0 +1,22 @@
+kind: pipeline
+name: default
+steps: 
+  - name: build
+    image: docker
+    commands:
+    - docker build --build-arg RKE_VERSION=v0.2.1 -t lukasbahr/rke-docker:v0.2.1
+    volumes:
+    - name: socket
+      path: /var/run/docker.sock
+  - name: publish
+    publish:
+      image: plugins/docker
+      repo: lukasbahr/rke-docker
+      secrets: [ REGISTRY_USER, REGISTRY_PASSWORD ]
+      when:
+        branch: master
+# volume
+volumes:
+  - name: socker
+    host:
+      path: /var/run/docker.sock
