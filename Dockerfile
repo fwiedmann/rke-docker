@@ -9,6 +9,7 @@ RUN apk --no-cache add wget ca-certificates git bash openssh-client && \
     chmod +x /usr/local/bin/rke 
 
 RUN adduser -S rke \
+    -h /deployment \
     -u 2000 \
     rke
 
