@@ -16,6 +16,7 @@ steps:
       #secrets: [ REGISTRY_USER, REGISTRY_PASSWORD ]
       #when:
        # branch: master
+# make sure repo is trusted in drone.ci
 volumes:
   - name: socket
     host:
