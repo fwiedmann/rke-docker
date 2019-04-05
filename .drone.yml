@@ -16,7 +16,6 @@ steps:
       #secrets: [ REGISTRY_USER, REGISTRY_PASSWORD ]
       #when:
        # branch: master
-# volume
 #volumes:
  # - name: socker
   #  host:
