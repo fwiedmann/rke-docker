@@ -10,12 +10,21 @@ steps:
     - name: socket
       path: /var/run/docker.sock
   - name: publish
-    publish:
-      image: plugins/docker
+    image: plugins/docker
+    when:
+      branch: 
+      - master
+    settings:
       repo: lukasbahr/rke-docker
-      secrets: [ REGISTRY_USER, REGISTRY_PASSWORD ]
-      when:
-        branch: master
+      username:
+        from_secret: REGISTRY_USER
+      password:
+        from_secret: REGISTRY_PASSWORD
+      tags = [
+       - latest
+       - ${DRONE_TAG}
+      auto_tag: true
+      force_tag: true
 # make sure repo is trusted in drone.ci
 volumes:
   - name: socket
