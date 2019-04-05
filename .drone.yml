@@ -9,13 +9,13 @@ steps:
     volumes:
     - name: socket
       path: /var/run/docker.sock
-  #- name: publish
-   # publish:
-    #  image: plugins/docker
-     # repo: lukasbahr/rke-docker
-      #secrets: [ REGISTRY_USER, REGISTRY_PASSWORD ]
-      #when:
-       # branch: master
+  - name: publish
+    publish:
+      image: plugins/docker
+      repo: lukasbahr/rke-docker
+      secrets: [ REGISTRY_USER, REGISTRY_PASSWORD ]
+      when:
+        branch: master
 # make sure repo is trusted in drone.ci
 volumes:
   - name: socket
