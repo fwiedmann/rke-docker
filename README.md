@@ -20,13 +20,14 @@ make RKE_VERSION=v0.2.1 all
 
 Simply pull and run the container, by mounting your cluster.yml inside the container. 
 
-
-
 ```bash
 docker pull lukasbahr/rke-docker:v0.2.1
 docker run -it -v $PWD/cluster.yml:/deployment lukasbahr/rke-docker:v0.2.1 up 
 ```
 
+## Open ToDo's | Issues
+
+- Publish to docker does not work
 
 Note: If you're pointing to your SSH Key, keep in mind that you'll likely mount your ssh key or paste it inline. 
 
