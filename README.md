@@ -1,5 +1,5 @@
 # rke-docker
-This project builds a container that provides the rke cli, developed and maintained by Rancher Labs
+This project builds a container that provides the rke cli, developed and maintained by Rancher Labs [![Build Status](https://ci.devopoly.de/api/badges/lukibahr/rke-docker/status.svg)](https://ci.devopoly.de/lukibahr/rke-docker)
 
 ## Intension
 
