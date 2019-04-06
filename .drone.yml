@@ -20,9 +20,9 @@ steps:
         from_secret: REGISTRY_USER
       password:
         from_secret: REGISTRY_PASSWORD
-      tags = [
+      tags:
        - latest
-       - ${DRONE_TAG}]
+       - ${DRONE_TAG}
       auto_tag: true
       force_tag: true
 # make sure repo is trusted in drone.ci
