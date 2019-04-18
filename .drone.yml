@@ -11,6 +11,9 @@ steps:
     when:
       branch: 
       - master
+    environment:
+      RKE_VERSION: v0.2.2
+      ARCHITECTURE: amd64
     settings:
       repo: lukasbahr/rke-docker
       username:
@@ -35,6 +38,9 @@ steps:
     when:
       branch: 
       - master
+    environment:
+      RKE_VERSION: v0.2.2
+      ARCHITECTURE: arm64
     settings:
       repo: lukasbahr/rke-docker
       username:
