@@ -12,8 +12,8 @@ steps:
       branch: 
       - master
     build_args:
-      RKE_VERSION: v0.2.2
-      ARCHITECTURE: amd64
+     - RKE_VERSION=v0.2.2
+     - ARCHITECTURE=amd64
     settings:
       repo: lukasbahr/rke-docker
       username:
@@ -39,8 +39,8 @@ steps:
       branch: 
       - master
     build_args:
-      RKE_VERSION: v0.2.2
-      ARCHITECTURE: arm64
+      - RKE_VERSION=v0.2.2
+      - ARCHITECTURE=arm64
     settings:
       repo: lukasbahr/rke-docker
       username:
