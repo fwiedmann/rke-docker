@@ -11,7 +11,7 @@ steps:
     when:
       branch: 
       - master
-    environment:
+    build_args:
       RKE_VERSION: v0.2.2
       ARCHITECTURE: amd64
     settings:
@@ -38,7 +38,7 @@ steps:
     when:
       branch: 
       - master
-    environment:
+    build_args:
       RKE_VERSION: v0.2.2
       ARCHITECTURE: arm64
     settings:
