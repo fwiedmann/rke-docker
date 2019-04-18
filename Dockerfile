@@ -3,8 +3,6 @@ FROM alpine:3.7
 ARG RKE_VERSION
 ARG ARCHITECTURE
 
-RUN echo $ARCHITECTURE
-
 LABEL maintainer="Lukas Bahr lukas@devopoly.de"
 
 ARG RKE_VERSION=$STAGE

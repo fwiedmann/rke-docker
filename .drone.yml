@@ -11,9 +11,6 @@ steps:
     when:
       branch: 
       - master
-    build_args:
-     - RKE_VERSION=v0.2.2
-     - ARCHITECTURE=amd64
     settings:
       repo: lukasbahr/rke-docker
       username:
@@ -23,6 +20,9 @@ steps:
       tags:
        - latest
        - 'amd64-v0.2.1'
+      build_args:
+      - RKE_VERSION=v0.2.2
+      - ARCHITECTURE=amd64
 
 ---
 kind: pipeline
@@ -38,9 +38,6 @@ steps:
     when:
       branch: 
       - master
-    build_args:
-      - RKE_VERSION=v0.2.2
-      - ARCHITECTURE=arm64
     settings:
       repo: lukasbahr/rke-docker
       username:
@@ -49,3 +46,6 @@ steps:
         from_secret: REGISTRY_PASSWORD
       tags:
        - 'arm64-v0.2.1'
+      build_args:
+      - RKE_VERSION=v0.2.2
+      - ARCHITECTURE=arm64
