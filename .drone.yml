@@ -1,16 +1,13 @@
 kind: pipeline
-name: default
+name: amd64
+
+platform:
+  os: linux
+  arch: amd64
 
 steps: 
-  - name: build
-    image: docker
-    commands:
-    - docker build --build-arg RKE_VERSION=v0.2.1 -t lukasbahr/rke-docker:v0.2.1 .
-    volumes:
-    - name: socket
-      path: /var/run/docker.sock
-  - name: publish
-    image: docker
+  - name: build-and-push-dockerimage
+    image: plugins/docker
     when:
       branch: 
       - master
@@ -22,11 +19,27 @@ steps:
         from_secret: REGISTRY_PASSWORD
       tags:
        - latest
-       - ${DRONE_TAG}
-      auto_tag: true
-      force_tag: true
-# make sure repo is trusted in drone.ci
-volumes:
-  - name: socket
-    host:
-      path: /var/run/docker.sock
+       - 'amd64-v0.2.1'
+
+---
+kind: pipeline
+name: arm64
+
+platform:
+  os: linux
+  arch: arm64
+
+steps: 
+  - name: build-and-push-dockerimage
+    image: plugins/docker
+    when:
+      branch: 
+      - master
+    settings:
+      repo: lukasbahr/rke-docker
+      username:
+        from_secret: REGISTRY_USER
+      password:
+        from_secret: REGISTRY_PASSWORD
+      tags:
+       - 'arm64-v0.2.1'
