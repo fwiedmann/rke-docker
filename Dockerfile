@@ -1,5 +1,8 @@
 FROM alpine:3.7
 
+ARG RKE_VERSION
+ARG ARCHITECTURE
+
 LABEL maintainer="Lukas Bahr lukas@devopoly.de"
 
 ARG RKE_VERSION=$STAGE
